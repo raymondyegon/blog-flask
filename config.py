@@ -1,16 +1,12 @@
 import os
 
 
-class config:
+class Config:
     '''
     General configuration parent class
     '''
 
-    QUOTES_API_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
-
-    @staticmethod
-    def init_app(app):
-        pass
+    QUOTES_API_URL = 'http://quotes.stormconsultancy.co.uk/popular.json'
 
 
 class ProdConfig(Config):
@@ -37,6 +33,6 @@ class DevConfig(Config):
 
 
 config_options = {
-    'development':DevConfig,
+    'development': DevConfig,
     'production': ProdConfig
 }
