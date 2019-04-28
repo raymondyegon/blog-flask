@@ -28,10 +28,10 @@ class User(UserMixin, db.Model):
     firstname = db.Column(db.String(255))
     lastname = db.Column(db.String(255))
     email = db.Column(db.String(255), unique=True, index=True)
+    subscription = db.Column(db.Boolean)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String)
     password_hash = db.Column(db.String(255))
-    subscription = db.Column(db.Boolean)
     date_joined = db.Column(db.DateTime, default=datetime.utcnow)
 
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
