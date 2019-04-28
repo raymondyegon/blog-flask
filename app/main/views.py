@@ -133,3 +133,17 @@ def update_post(id):
         return redirect(url_for('main.post', id=post.id))
 
     return render_template('update.html', form=form)
+
+
+@main.route('/user/<uname>')
+def profile(uname):
+    '''
+    Profile page of user
+    '''
+    user = User.query.filter_by(username=uname).first()
+    user_joined = user.date_joined.strftime('%b %d, %Y')
+
+    if user is None:
+        abort(404)
+
+    return render_template('profile/profile.html', user=user, date=user_joined)
