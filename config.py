@@ -7,6 +7,24 @@ class Config:
     '''
 
     QUOTES_API_URL = 'http://quotes.stormconsultancy.co.uk/popular.json'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ray:12345@localhost/blog'
+    UPLOADED_PHOTOS_DEST = 'app/static/photos'
+
+    # email configurations
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 465
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    SUBJECT_PREFIX = 'Pitch Website'
+    SENDER_EMAIL = 'raymondyegon17@gmail.com'
+
+    @staticmethod
+    def init_app(app):
+        pass
 
 
 class ProdConfig(Config):
@@ -18,7 +36,7 @@ class ProdConfig(Config):
 
     '''
 
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 
 class DevConfig(Config):
@@ -29,6 +47,7 @@ class DevConfig(Config):
         Config: The parent configuration class with General confirguration settings
 
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ray:12345@localhost/blog'
     DEBUG = True
 
 
