@@ -14,13 +14,13 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    # random_quote = get_quotes()
+    random_quote = get_quotes()
 
     posts = Post.query.order_by(Post.date_posted.desc()).limit(3).all()
 
     title = "Home - Welcome to the best Blog page"
 
-    return render_template("index.html", title=title, posts=posts)
+    return render_template("index.html", title=title, posts=posts, quote = random_quote)
 
 
 @main.route('/post/new', methods=['GET', 'POST'])

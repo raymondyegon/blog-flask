@@ -6,7 +6,7 @@ class Config:
     General configuration parent class
     '''
 
-    QUOTES_API_URL = 'http://quotes.stormconsultancy.co.uk/popular.json'
+    QUOTES_API_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ray:12345@localhost/blog'
