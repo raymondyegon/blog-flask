@@ -41,15 +41,18 @@ def process_results(quotes_list):
     '''
 
     quote_results = []
+    # quotes_list = quotes_list.decode("utf=8")
 
-    for quote_item in quotes_list:
-        author = quote_item.get("author")
-        quote = quote_item.get("quote")
+    for keys, value in quotes_list.items():    
+            if keys == 'author':
+                author = value
+            
+                quote_results.append(author) 
+            
+            if keys == 'quote':
+                quote = value
+            
+                quote_results.append(quote)
 
-        if quote:
-
-            quote_object = Quote(author, quote)
-
-            quote_results.append(quote_object)
 
     return quote_results
