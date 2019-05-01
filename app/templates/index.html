@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro%}
-<!-- Content block -->
-{%block content%}
 
-<div class="container">
-    {{ quote}}
-</div>
-{%endblock%}
+<!-- Content block -->
+{% block content%}
+
+<div class="wrapper">
+        <div class="page-header header-filter">
+          <div class="squares square1"></div>
+          <div class="squares square2"></div>
+          <div class="squares square3"></div>
+          <div class="squares square4"></div>
+          <div class="squares square5"></div>
+          <div class="squares square6"></div>
+          <div class="squares square7"></div>
+          <div class="container">
+            <div class="content-center brand">
+              <h1 class="h1-seo"> {{ quote[0] }} </h1>
+              <h3> {{quote[1]}} </h3>
+            </div>
+          </div>
+        </div>
+
+{% endblock %}
