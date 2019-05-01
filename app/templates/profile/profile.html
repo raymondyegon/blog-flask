@@ -1,4 +1,6 @@
-{% include 'styles.html' %}
+{% extends 'base.html' %}
+
+{% block content%}
 
 <body class="profile-page sidebar-collapse">
 
@@ -24,7 +26,7 @@
 
                         {% else %}
 
-                        <p class="profile-description"> {{ user. bio }} </p>
+                        <p class="profile-description"> {{ user.bio }} </p>
 
                         {% endif %}
 
@@ -50,10 +52,11 @@
                             <div class="card-header">
                                 {% if user.profile_pic_path %}
                                 <img src="{{url_for('static',filename=user.profile_pic_path)}}"
-                                    class="img-center img-fluid rounded-circle">
+                                    class="img-center img-fluid rounded-circle shadow" style="width: 150px;">
                                 {% else %}
 
-                                <img src="/static/img/rust.jpg" class="img-center img-fluid rounded-circle">
+                                <img src="/static/img/rust.jpg" class="img-center img-fluid rounded-circle shadow"
+                                    style="width: 150px;">
 
                                 {% endif %}
 
@@ -90,3 +93,5 @@
 
     </div>
 </body>
+
+{% endblock %}

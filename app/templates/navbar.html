@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="/" rel="tooltip" title="BLog website" data-placement="bottom" target="_blank">
+            <a class="navbar-brand" href="/" rel="tooltip" title="BLog website" data-placement="bottom">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
                     viewBox="0 0 24 24" focusable="false">
@@ -70,16 +70,16 @@
                         <a href="{{ url_for('main.new_post') }}" class="dropdown-item">
                             <i class="tim-icons icon-bullet-list-67"></i>Post Blog
                         </a>
-                        <!-- <a href="examples/landing-page.html" class="dropdown-item">
-                            <i class="tim-icons icon-image-02"></i>Landing Page
-                        </a> -->
                         <a href="{{ url_for('main.profile',uname=current_user.username) }}" class="dropdown-item">
                             <i class="tim-icons icon-single-02"></i>Profile Page
                         </a>
+                         <a href="{{ url_for('auth.logout') }}" class="dropdown-item">
+                            <i class="tim-icons icon-image-02"></i>Sign Out
+                        </a> 
                     </div>
                 </li>
                 {% else %}
-                <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                <li><a href="{{url_for('auth.login')}}"><i class="tim-icons icon-single-02"></i>Sign in</a></li>
             </ul>
             {%endif%}
 

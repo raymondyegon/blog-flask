@@ -26,16 +26,15 @@ def index():
 @main.route('/post/new', methods=['GET', 'POST'])
 @login_required
 def new_post():
-    if current_user.role_id == 1:
-        post_form = PostForm()
-        if post_form.validate_on_submit():
+    post_form = PostForm()
+    if post_form.validate_on_submit():
             title = post_form.title.data
             text = post_form.text.data
 
             users = User.query.all()
 
             # Update pitch instance
-            new_post = Post(title=title, text=text, post=current_user)
+            new_post = Post(title=title, text=text)
 
             # Save post method
             new_post.save_post()
@@ -47,8 +46,8 @@ def new_post():
 
             return redirect(url_for('.index'))
 
-    else:
-        return redirect(url_for('.index'))
+    # else:
+    #     return redirect(url_for('.index'))
 
     title = 'New post'
     return render_template('new_post.html', title=title, post_form=post_form)
