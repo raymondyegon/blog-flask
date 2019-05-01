@@ -1,9 +1,4 @@
-{% extends 'bootstrap/base.html' %}
-
 {% block styles %}
-
-{{ super() }}
-
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
@@ -27,12 +22,3 @@
 <script src="{{ url_for('static', filename='js/blk-design-system.js') }}"></script>
 
 {% endblock %}
-
-
-<!--Navbar Block-->
-
-
-
-{% include 'navbar.html' %}
-
-
